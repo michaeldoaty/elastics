@@ -4,9 +4,7 @@
             [elastics.index :as index]))
 
 
-
 (def body {:greet "hello"})
-
 
 
 (deftest create-test
@@ -47,14 +45,14 @@
 
 (deftest close-test
   (is (= (index/close "twitter")
-         {:method :put
+         {:method :post
           :url    "twitter/_close"})))
 
 
 
 (deftest open-test
   (is (= (index/open "twitter")
-         {:method :put
+         {:method :post
           :url    "twitter/_open"})))
 
 
@@ -106,6 +104,11 @@
          {:method :put
           :url    "twitter/_alias/name"})))
 
+
+(deftest get-alias-test
+  (is (= (index/get-alias "twitter" "name")
+         {:method :get
+          :url    "twitter/_alias/name"})))
 
 
 (deftest delete-alias-test
@@ -295,6 +298,17 @@
            {:method :post
             :url    "twitter/_flush"}))))
 
+
+(deftest synced-flush-test
+  (testing "without index"
+    (is (= (index/synced-flush)
+           {:method :post
+            :url    "_flush/synced"})))
+
+  (testing "with index"
+    (is (= (index/synced-flush "twitter")
+           {:method :post
+            :url    "twitter/_flush/synced"}))))
 
 
 (deftest refresh-test

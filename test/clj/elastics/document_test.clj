@@ -2,7 +2,9 @@
   (:require [clojure.test :refer :all]
             [elastics.document :as doc]))
 
+
 (def body {:greet "hello"})
+
 
 (deftest index-test
   (testing "without index"

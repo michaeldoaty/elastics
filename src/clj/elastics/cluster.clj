@@ -2,26 +2,6 @@
   (:require [elastics.helper :as helper]))
 
 
-;;; -----------------------------------------------
-;;; -----------  helper functions -----------------
-;;; -----------------------------------------------
-
-(def extend-url helper/extend-url)
-
-(def merge-http-map helper/merge-http-map)
-
-(def params helper/params)
-
-(def custom helper/custom)
-
-(def run helper/run)
-
-
-
-;;; -----------------------------------------------
-;;; -----------  cluster functions ----------------
-;;; -----------------------------------------------
-
 (defn health
   "Gets a very simple status on the health of a cluster"
   ([]

@@ -3,26 +3,6 @@
   (:refer-clojure :exclude [get flush]))
 
 
-;;; -----------------------------------------------
-;;; -----------  helper functions -----------------
-;;; -----------------------------------------------
-
-(def extend-url helper/extend-url)
-
-(def merge-http-map helper/merge-http-map)
-
-(def params helper/params)
-
-(def custom helper/custom)
-
-(def run helper/run)
-
-
-
-;;; -----------------------------------------------
-;;; -----------  index functions ------------------
-;;; -----------------------------------------------
-
 (defn create
   "Instantiates an index."
   ([index]
@@ -59,14 +39,14 @@
   "Closes an index."
   [index]
   {:url    (helper/file index "_close")
-   :method :put})
+   :method :post})
 
 
 (defn open
   "Opens an index."
   [index]
   {:url    (helper/file index "_open")
-   :method :put})
+   :method :post})
 
 
 (defn put-mapping
@@ -112,6 +92,13 @@
   [index name]
   {:url    (helper/file index "_alias" name)
    :method :put})
+
+
+(defn get-alias
+  "Retrieves existing alias"
+  [index name]
+  {:url    (helper/file index "_alias" name)
+   :method :get})
 
 
 (defn delete-alias
@@ -266,6 +253,16 @@
 
   ([index]
    {:url    (helper/file index "_flush")
+    :method :post}))
+
+
+(defn synced-flush
+  "Initiates a synced flush manually."
+  ([]
+   (synced-flush nil))
+
+  ([index]
+   {:url    (helper/file index "_flush/synced")
     :method :post}))
 
 

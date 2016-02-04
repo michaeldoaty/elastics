@@ -3,26 +3,6 @@
   (:require [elastics.helper :as helper]))
 
 
-;;; -----------------------------------------------
-;;; -----------  helper functions -----------------
-;;; -----------------------------------------------
-
-(def extend-url helper/extend-url)
-
-(def merge-http-map helper/merge-http-map)
-
-(def params helper/params)
-
-(def custom helper/custom)
-
-(def run helper/run)
-
-
-
-;;; -----------------------------------------------
-;;; -----------  search functions -----------------
-;;; -----------------------------------------------
-
 (defn query
   "Executes a search query."
   ([]

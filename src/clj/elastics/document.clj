@@ -3,26 +3,6 @@
   (:refer-clojure :exclude [get update]))
 
 
-;;; -----------------------------------------------
-;;; -----------  helper functions -----------------
-;;; -----------------------------------------------
-
-(def extend-url helper/extend-url)
-
-(def merge-http-map helper/merge-http-map)
-
-(def params helper/params)
-
-(def custom helper/custom)
-
-(def run helper/run)
-
-
-
-;;; -----------------------------------------------
-;;; -----------  document functions ---------------
-;;; -----------------------------------------------
-
 (defn index
   "Adds or updates a document in a specific index."
   ([body index type]
