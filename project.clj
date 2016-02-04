@@ -1,4 +1,4 @@
-(defproject elastics "0.1.0"
+(defproject elastics "0.1.1"
   :description "Data driven clojure client for Elasticsearch."
   :url "https://github.com/michaeldoaty/elastics"
   :license {:name "Eclipse Public License"
